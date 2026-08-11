@@ -2488,6 +2488,7 @@ details.faq-item[open] summary{padding-left:8px;}
   <div class="ov-eyebrow">Taller · Reparación del Daño</div>
   <nav>
     <a href="#programa">Programa</a>
+    <a href="#" class="js-dl-open">Descargar temario</a>
     <a href="#para-quien">Para quién</a>
     <a href="#al-finalizar">Al finalizar</a>
     <a href="#docente">Docente</a>
@@ -2513,18 +2514,14 @@ details.faq-item[open] summary{padding-left:8px;}
         <span class="kicker"><span class="dash"></span>Taller especializado<span class="sep-d"> · </span><br class="brm">Responsabilidad civil</span>
         <span class="badge"><span class="dot"></span>Edición 2026 · Inscripciones abiertas</span>
       </div>
-      <h1 class="hero-title"><span class="l l1"><span>Reparación del daño</span></span></h1><p class="hero-areas" style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-soft);font-size:clamp(20px,2.6vw,31px);line-height:1.2;margin-top:12px;max-width:720px;">Negligencia médica, accidentes de tránsito y derechos de la personalidad</p>
+      <h1 class="hero-title"><span class="l l1"><span>Reparación del daño</span></span></h1><p class="hero-areas" style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-soft);font-size:clamp(21px,2.7vw,33px);line-height:1.32;margin-top:14px;">Negligencia médica<br>Accidentes de tránsito<br>Derechos de la personalidad</p>
       <p class="hook"><span class="hook-line1">Una reclamación de daños no se sostiene únicamente afirmando que existe un perjuicio.</span><span class="hook-line2">Hay que identificar el fundamento de responsabilidad, probar el daño y su relación causal, y defender una cuantificación jurídicamente fundada.</span></p>
-      <ul class="h-bullets">
-        <li>Negligencia médica <span style="color:var(--gold-soft)">—</span> régimen jurídico, deberes profesionales, prueba y estructuración de la demanda.</li>
-        <li>Accidentes de tránsito <span style="color:var(--gold-soft)">—</span> responsabilidad civil, contrato de transporte y eventual conexión con la responsabilidad penal.</li>
-        <li>Derechos de la personalidad <span style="color:var(--gold-soft)">—</span> vida privada, honra, reputación e imagen, y reparación del daño moral.</li>
-      </ul>
+      
       <div class="cta-row">
         <a class="btn btn-gold" href="https://wa.me/50575453113?text=Hola.%20Estoy%20interesado%20en%20el%20taller%20sobre%20reparaci%C3%B3n%20del%20da%C3%B1o%20%28negligencias%20m%C3%A9dicas%2C%20accidentes%20de%20tr%C3%A1nsito%20y%20derechos%20de%20la%20personalidad%29.%20Quiero%20reservar%20mi%20cupo." target="_blank" rel="noopener">Reservar mi cupo</a>
         <a class="link-cta" href="#programa">Ver programa <span class="ar">&darr;</span><span class="ln"></span></a>
       </div>
-      <div class="countdown" id="cd-text">Calculando…</div><p style="margin-top:16px;font-size:13.5px;line-height:1.5;color:rgba(246,239,227,.7);max-width:560px;">Impartido por el <strong style="color:#ecdfca;font-weight:600;">Dr. Germán Antonio Orozco Gadea</strong> · Doctor en Derecho Civil por la Universidad de Salamanca.</p>
+      <div class="countdown" id="cd-text">Calculando…</div>
     </div>
     <div class="scroll-cue"><span class="l"></span> Desliza</div>
   </div>
@@ -2893,6 +2890,7 @@ El taller cuenta con el aval académico de <strong>Commenda</strong> — Grupo I
   </div>
   <div class="sb-actions">
     <a class="sb-link" href="#programa">Programa &rarr;</a>
+    <a class="sb-link js-dl-open" href="#" role="button">Descargar temario</a>
     <a class="sb-cta" href="https://wa.me/50575453113?text=Hola.%20Estoy%20interesado%20en%20el%20taller%20sobre%20reparaci%C3%B3n%20del%20da%C3%B1o%20%28negligencias%20m%C3%A9dicas%2C%20accidentes%20de%20tr%C3%A1nsito%20y%20derechos%20de%20la%20personalidad%29.%20Quiero%20reservar%20mi%20cupo." target="_blank" rel="noopener">Reservar</a>
   </div>
 </div>
@@ -3250,13 +3248,13 @@ El taller cuenta con el aval académico de <strong>Commenda</strong> — Grupo I
 <script>
 (function(){
   var openBtn=document.getElementById('dl-open'),ov=document.getElementById('dl-overlay'),cls=document.getElementById('dl-close'),form=document.getElementById('dl-form'),err=document.getElementById('dl-err');
-  if(!openBtn||!ov||!form)return;
+  if(!ov||!form)return;
   var PDF='folleto-taller-reparacion-del-dano.pdf', WA='50575453113';
   var fN=document.getElementById('dl-nombre'),fC=document.getElementById('dl-cel'),fM=document.getElementById('dl-correo'),c1=document.getElementById('dl-c1'),c2=document.getElementById('dl-c2'),l1=document.getElementById('dl-l1');
   var priv=document.getElementById('dl-privacy'),privLink=document.getElementById('dl-privacy-link');
   function openM(){ov.classList.add('open');ov.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(function(){fN.focus();},60);}
   function closeM(){ov.classList.remove('open');ov.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-  openBtn.addEventListener('click',openM);
+  document.querySelectorAll('#dl-open, .js-dl-open').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openM();});});
   if(cls)cls.addEventListener('click',closeM);
   ov.addEventListener('click',function(e){if(e.target===ov)closeM();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('open'))closeM();});
